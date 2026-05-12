@@ -74,6 +74,7 @@ class CoursesClient(APIClient):
     def get_course_api(self, query: str) -> Response:
         """
         Метод получения списка курсов.
+
         :param query: Словарь query параметров с userId.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
@@ -101,6 +102,7 @@ class CoursesClient(APIClient):
     def get_course_by_id(self, course_id: str) -> Response:
         """
         Метод получения курса по уникальному идентификатору.
+
         :param course_id: Уникальный идентификатор курса.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
@@ -119,6 +121,7 @@ class CoursesClient(APIClient):
     def delete_courses_api(self, course_id: str) -> Response:
         """
         Метод удаления курса по уникальному идентификатору.
+
         :param course_id: Идентификатор курса.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """

@@ -39,7 +39,7 @@ class AuthenticationClient(APIClient):
     """
     Клиент для работы с /api/v1/authentication
     """
-    pass
+
 
     def login_api(self, request: LoginRequestDict) -> Response:
         """

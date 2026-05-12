@@ -1,4 +1,5 @@
 from clients.courses.courses_client import get_private_course_client, CreateCoursesRequestDict
+from clients.exercises.exercises_client import get_private_exercise_client
 from clients.files.files_client import get_private_file_client, CreateFileRequestDict
 from clients.privet_http_builder import AuthenticationUserDict
 from clients.users.public_users_client import CreateUserRequestDict, get_public_user_client
@@ -43,6 +44,8 @@ create_course_request = CreateCoursesRequestDict(
     createdByUserId=create_user_response["user"]["id"])
 
 create_course_response = course_client.create_course(request=create_course_request)
+
+exercises_client = get_private_exercise_client(user=authentication_user)
 
 print(create_course_response)
 
