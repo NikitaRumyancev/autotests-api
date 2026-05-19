@@ -3,6 +3,13 @@ from jsonschema import validate, Draft202012Validator
 
 
 def validate_json_schema(instance: Any, schema: dict) -> None:
+    """
+    Проверяет, соответствует ли JSON-объект (instance) заданной JSON-схеме (schema).
+
+    :param instance: JSON-данные, которые нужно проверить.
+    :param schema: Ожидаемая JSON-schema.
+    :raises jsonschema.exceptions.ValidationError: Если instance не соответствует schema.
+    """
     validate(
         instance=instance,
         schema=schema,
