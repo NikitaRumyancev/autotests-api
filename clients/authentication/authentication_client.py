@@ -1,4 +1,4 @@
-from authentication.authentication_schemа import (LoginRequestSchema,
+from .authentication_schema import (LoginRequestSchema,
                                                   LoginResponseSchema,
                                                   RefreshRequestSchema)
 from httpx import Response
@@ -36,7 +36,7 @@ class AuthenticationClient(APIClient):
         Метод аутентификации пользователя и получения ответа от сервера в виде json.
 
         :param request: Словарь с email, password.
-        :return: Ответ от сервера в формате json.
+        :return: LoginResponseSchema.
         """
         login_response = self.login_api(request)
         return LoginResponseSchema.model_validate_json(login_response.text)
