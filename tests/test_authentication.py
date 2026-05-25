@@ -1,3 +1,5 @@
+import pytest
+
 from clients.users.public_users_client import get_public_user_client
 from clients.authentication.authentication_schema import LoginRequestSchema, LoginResponseSchema
 from clients.users.user_schema import  CreateUserRequestSchema
@@ -10,7 +12,8 @@ from http import HTTPStatus
 
 class TestAuthentication:
 
-
+    @pytest.mark.regression
+    @pytest.mark.authentication
     def test_login(self):
         user_client = get_public_user_client()
         auth_client = get_authentication_client()
