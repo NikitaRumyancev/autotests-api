@@ -1,8 +1,12 @@
-from clients.users.user_schema import CreateUserResponseSchema, CreateUserRequestSchema
+from typing import Any
+
+from clients.users.user_schema import CreateUserResponseSchema, CreateUserRequestSchema, UserSchema
+from tests.conftest import UserFixture
 from tools.assertions.base import assert_equal
+from clients.users.user_schema import GetUserResponseSchema
 
 
-def assert_create_user_response(request: CreateUserRequestSchema, response: CreateUserResponseSchema):
+def assert_create_user_response(request: CreateUserRequestSchema, response: CreateUserResponseSchema) -> None:
     """
     Проверяет, что ответ на создание пользователя соответствует запросу.
 
@@ -14,3 +18,28 @@ def assert_create_user_response(request: CreateUserRequestSchema, response: Crea
     assert_equal(actual=response.user.first_name, expected=request.first_name, name="first_name")
     assert_equal(actual=response.user.middle_name, expected=request.middle_name, name="middle_name")
     assert_equal(actual=response.user.last_name, expected=request.last_name, name="last_name")
+
+def assert_user(actual: UserSchema, expected: UserSchema) -> None:
+    """
+    Сравнивает два объекта UserSchema по всем полям.
+
+    :param actual: объект UserSchema.
+    :param expected: объект UserSchema.
+    :raises: AssertionError Если хотя бы одно поле не совпадает.
+    """
+    assert_equal(actual=actual.id, expected=expected.id, name="id")
+    assert_equal(actual=actual.email, expected=expected.email, name="email")
+    assert_equal(actual=actual.first_name, expected=expected.first_name, name="first_name")
+    assert_equal(actual=actual.middle_name, expected=expected.middle_name, name="middle_name")
+    assert_equal(actual=actual.last_name, expected=expected.last_name, name="last_name")
+
+def assert_get_user_response(get_user_response: Any, create_user_response: UserFixture) -> None:
+    """
+    Проверяет, что данные пользователя при запросе соответствуют данным при создании.
+
+    :param get_user_response: Ответ от сервера при запросе пользователя.
+    :param create_user_response: Ответ от сервера при создании пользователя.
+    :raises: AssertionError в случае, если найдено несовпадение по полям.
+    """
+    get_user_response = GetUserResponseSchema.model_validate_json(get_user_response.text)
+    assert_user(actual=get_user_response.user, expected=create_user_response.response.user)
