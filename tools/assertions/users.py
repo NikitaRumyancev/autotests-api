@@ -1,9 +1,9 @@
 from typing import Any
 
 from clients.users.user_schema import CreateUserResponseSchema, CreateUserRequestSchema, UserSchema
-from tests.conftest import UserFixture
 from tools.assertions.base import assert_equal
 from clients.users.user_schema import GetUserResponseSchema
+from fixtures.users import UserFixture
 
 
 def assert_create_user_response(request: CreateUserRequestSchema, response: CreateUserResponseSchema) -> None:

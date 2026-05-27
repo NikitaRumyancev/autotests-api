@@ -1,8 +1,6 @@
 import pytest
 from pydantic import BaseModel, EmailStr
-
 from clients.users.public_users_client import PublicUsersClient, get_public_user_client
-from clients.authentication.authentication_client import AuthenticationClient, get_authentication_client
 from clients.users.user_schema import CreateUserRequestSchema, CreateUserResponseSchema
 from clients.users.private_user_client import AuthenticationUserSchema
 from clients.users.private_user_client import PrivateUsersClient, get_private_user_client
@@ -56,15 +54,6 @@ def private_user_client(function_user: UserFixture) -> PrivateUsersClient:
     :yield: Настроенный http клиент. Объект PrivateUsersClient.
     """
     return get_private_user_client(user=function_user.authentication_user)
-
-@pytest.fixture
-def authentication_client() -> AuthenticationClient:
-    """
-    Фистура, которая создаем готовый http Client.
-
-    :return: AuthenticationClient
-    """
-    return get_authentication_client()
 
 @pytest.fixture
 def function_user(public_user_client: PublicUsersClient) -> UserFixture:
