@@ -1,4 +1,4 @@
-from exercises.exercises_shema import (CreateExerciseRequestSchema,
+from clients.exercises.exercises_shema import (CreateExerciseRequestSchema,
                                        CreateExerciseResponseSchema,
                                        GetExerciseResponseSchema,
                                        GetExercisesQuerySchema,

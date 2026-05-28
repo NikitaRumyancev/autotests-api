@@ -9,10 +9,10 @@ from tools.assertions.users import assert_create_user_response, assert_get_user_
 from tools.fakers import fake
 
 
-class TestUserAuthentication:
+@pytest.mark.users
+@pytest.mark.regression
+class TestUsers:
 
-    @pytest.mark.regression
-    @pytest.mark.authentication
     @pytest.mark.parametrize("domain", ["mail.ru", "gmail.com", "example.com"])
     def test_create_user(self,
                          public_user_client: PublicUsersClient,
@@ -26,8 +26,6 @@ class TestUserAuthentication:
 
         validate_json_schema(instance=response.json(), schema=response_data.model_json_schema())
 
-    @pytest.mark.users
-    @pytest.mark.regression
     def test_get_user_me(self,
                          private_user_client,
                          function_user):
@@ -38,7 +36,3 @@ class TestUserAuthentication:
         assert_get_user_response(get_user_me_response, create_user_response)
 
         validate_json_schema(instance=get_user_me_response.json(), schema=GetUserResponseSchema.model_json_schema())
-
-
-
-

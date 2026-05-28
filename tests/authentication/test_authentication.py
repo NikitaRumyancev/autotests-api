@@ -9,11 +9,10 @@ from http import HTTPStatus
 from fixtures.users import UserFixture
 
 
+@pytest.mark.regression
+@pytest.mark.authentication
 class TestAuthentication:
 
-
-    @pytest.mark.regression
-    @pytest.mark.authentication
     def test_login(self, function_user: UserFixture, authentication_client: AuthenticationClient):
         login_request = authentication_client.login_api(request=LoginRequestSchema(
             email=function_user.email,
@@ -26,8 +25,3 @@ class TestAuthentication:
 
         validate_json_schema(instance=response_data.model_dump(by_alias=True),
                              schema=LoginResponseSchema.model_json_schema())
-
-
-
-
-
