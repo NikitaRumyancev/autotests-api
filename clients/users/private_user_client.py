@@ -1,6 +1,6 @@
 from httpx import Response
-from privet_http_builder import AuthenticationUserSchema
-from users.user_schema import GetUserResponseSchema, UpdateUserRequestSchema
+from clients.privet_http_builder import AuthenticationUserSchema
+from clients.users.user_schema import GetUserResponseSchema, UpdateUserRequestSchema
 
 from clients.api_client import APIClient
 from clients.privet_http_builder import get_private_http_client

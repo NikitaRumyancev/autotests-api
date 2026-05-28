@@ -1,4 +1,4 @@
-from courses.courses_schema import (CreateCourseResponseSchema,
+from clients.courses.courses_schema import (CreateCourseResponseSchema,
                                     CreateCoursesRequestSchema,
                                     UpdateCoursesRequestSchema)
 from httpx import Response
