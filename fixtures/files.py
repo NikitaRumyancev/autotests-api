@@ -35,6 +35,6 @@ def function_file(files_client):
     :param files_client: Фикстура для инициализации клиента для работы с файлами (FilesClient)
     :return: Pydantic-модель, объединяющая запрос и ответ при создании файла.
     """
-    request = CreateFileRequestSchema(upload_file="./test_data/files/playwrite.png")
+    request = CreateFileRequestSchema(upload_file="./test_data/files/image.jpg")
     response = files_client.create_file(request)
     return FileFixture(request=request, response=response)
