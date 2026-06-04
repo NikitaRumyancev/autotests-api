@@ -3,6 +3,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from clients.users.user_schema import UserSchema
 from tools.fakers import fake
 
+
 class CourseSchema(BaseModel):
     """
     Описание структуры курса.
@@ -57,3 +58,19 @@ class GetCoursesQuerySchema(BaseModel):
     """
     model_config = ConfigDict(populate_by_name=True)
     user_id: str = Field(alias="userId")
+
+
+class UpdateCourseResponseSchema(BaseModel):
+    """
+    Описание структуры ответа от сервера при обновлении курса.
+    """
+    course: CourseSchema
+
+
+class GetCoursesResponseSchema(BaseModel):
+    """
+    Описание структуры ответа от сервера при выполнении запроса списка курсов.
+    """
+    model_config = ConfigDict(populate_by_name=True)
+
+    courses: list[CourseSchema]
