@@ -1,6 +1,7 @@
 from clients.errors_schemas import InternalErrorResponseSchema
-from clients.exercises.exercises_shema import CreateExerciseResponseSchema, CreateExerciseRequestSchema, ExerciseSchema, \
-    GetExercisesResponseSchema, UpdateExerciseResponseSchema, UpdateExerciseRequestSchema
+from clients.exercises.exercises_shema import CreateExerciseResponseSchema, CreateExerciseRequestSchema, \
+    ExerciseSchema, GetExercisesResponseSchema, UpdateExerciseResponseSchema, UpdateExerciseRequestSchema, \
+    GetExerciseResponseSchema
 from tools.assertions.base import assert_equal, assert_length
 from tools.assertions.errors import assert_internal_error_response
 
@@ -24,7 +25,7 @@ def assert_create_exercise_response(actual: CreateExerciseResponseSchema, expect
     assert_equal(actual=actual.exercise.estimated_time, expected=expected.estimated_time, name="estimated_time")
 
 
-def assert_exercise(actual: ExerciseSchema, expected: ExerciseSchema):
+def assert_exercise(actual: ExerciseSchema, expected: CreateExerciseRequestSchema):
     """
     Метод проверяет, что фактические данные задания соответствуют ожидаемым.
 
@@ -40,8 +41,19 @@ def assert_exercise(actual: ExerciseSchema, expected: ExerciseSchema):
     assert_equal(actual=actual.description, expected=expected.description, name="description")
     assert_equal(actual=actual.estimated_time, expected=expected.estimated_time, name="estimated_time")
 
-
 def assert_get_exercise_response(
+        create_exercise_request: CreateExerciseRequestSchema,
+        get_exercise_response: GetExerciseResponseSchema):
+    """
+    Проверяет, что ответ на получение задания соответствует запросу на его создание.
+
+    :param create_exercise_request: Запрос на создание задания.
+    :param get_exercise_response: Запрос на получение задания.
+    :raises: AssertionError, если хотя бы одно поле не совпадает.
+    """
+    assert_exercise(actual=get_exercise_response.exercise, expected=create_exercise_request)
+
+def assert_get_exercises_response(
         get_exercises_response: GetExercisesResponseSchema,
         create_exercises_response: list[CreateExerciseResponseSchema]
 ):
