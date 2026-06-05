@@ -26,15 +26,15 @@ def exercises_client(function_user: UserFixture) -> ExercisesClient:
 
 
 @pytest.fixture
-def function_exercise(exercise_client: ExercisesClient,
+def function_exercise(exercises_client: ExercisesClient,
                       function_course: CourseFixture):
     """
     Фикстура для создания упражнения в курсе.
 
-    :param exercise_client: Фикстура для инициализации клиента (ExercisesClient).
+    :param exercises_client: Фикстура для инициализации клиента (ExercisesClient).
     :param function_course: Фикстура для создания курса.
     :return: Pydantic-модель, объединяющая запрос и ответ при создании упражнения.
     """
     request = CreateExerciseRequestSchema(courseId=function_course.course_id)
-    response = exercise_client.create_exercise(request=request)
+    response = exercises_client.create_exercise(request=request)
     return ExerciseFixture(request=request, response=response)

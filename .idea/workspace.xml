@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5ed5a414-6158-4774-85df-2e51d78a965f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/course_service.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc_course_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/grpc_course_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc_course_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/grpc_course_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/exercises.py" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/exercises.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/exercises/test_exercises.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/exercises/test_exercises.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/assertions/exercises.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/assertions/exercises.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +29,6 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="37i1T3SDh5mFWiG03dSo9rhQl67" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
