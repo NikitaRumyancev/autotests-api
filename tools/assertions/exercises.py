@@ -1,5 +1,5 @@
 from clients.exercises.exercises_shema import CreateExerciseResponseSchema, CreateExerciseRequestSchema, ExerciseSchema, \
-    GetExercisesResponseSchema
+    GetExercisesResponseSchema, UpdateExerciseResponseSchema, UpdateExerciseRequestSchema
 from tools.assertions.base import assert_equal, assert_length
 
 
@@ -54,3 +54,19 @@ def assert_get_exercise_response(
 
     for index, exercise in enumerate(create_exercises_response):
         assert_exercise(actual=get_exercises_response.exercises[index], expected=exercise.exercise)
+
+def assert_update_exercise_response(request: UpdateExerciseRequestSchema, response: UpdateExerciseResponseSchema):
+    """
+    Проверяет, что данные после обновления информации о задании соответствуют данным на обновление задания.
+
+    :param request: Данные для запроса на обновление.
+    :param response: Данные в ответе после обновления информации о задании.
+    :raises: AssertionError, если хотя бы одно поле не совпадает.
+    """
+    assert_equal(actual=request.title, expected=response.exercise.title, name="title")
+    assert_equal(actual=request.max_score, expected=response.exercise.max_score, name="max_score")
+    assert_equal(actual=request.min_score, expected=response.exercise.min_score, name="min_score")
+    assert_equal(actual=request.order_index, expected=response.exercise.order_index, name="order_index")
+    assert_equal(actual=request.description, expected=response.exercise.description, name="description")
+    assert_equal(actual=request.estimated_time, expected=response.exercise.estimated_time, name="estimated_time")
+

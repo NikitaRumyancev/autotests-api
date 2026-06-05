@@ -77,12 +77,6 @@ class UpdateExerciseResponseSchema(BaseModel):
     """
     Описание сруктуры ответа при обновлении информации в задании.
     """
-    model_config = ConfigDict(populate_by_name=True)
-    title: str
-    max_score: int = Field(alias="maxScore")
-    min_score: int = Field(alias="minScore")
-    order_index: int = Field(alias="orderIndex")
-    description: str
-    estimated_time: str = Field(alias="estimatedTime")
+    exercise: ExerciseSchema
 
 
