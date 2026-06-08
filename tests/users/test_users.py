@@ -19,11 +19,14 @@ from allure_commons.types import Severity
 @pytest.mark.regression
 @allure.tag(AllureTag.USERS, AllureTag.REGRESSION)
 @allure.epic(AllureEpic.LMS)
+@allure.parent_suite(AllureEpic.LMS)
 @allure.feature(AllureFeature.USERS)
+@allure.suite(AllureFeature.USERS)
 class TestUsers:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.CREATE_ENTITY)
+    @allure.sub_suite(AllureStory.CREATE_ENTITY)
     @allure.tag(AllureTag.CREATE_ENTITY)
     @allure.title("Create user")
     @pytest.mark.parametrize("domain", ["mail.ru", "gmail.com", "example.com"])
@@ -41,6 +44,7 @@ class TestUsers:
 
     @allure.severity(Severity.CRITICAL)
     @allure.story(AllureStory.GET_ENTITY)
+    @allure.sub_suite(AllureStory.GET_ENTITY)
     @allure.tag(AllureTag.GET_ENTITY)
     @allure.title("Get user me")
     def test_get_user_me(self,

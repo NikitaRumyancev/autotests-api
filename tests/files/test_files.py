@@ -23,7 +23,9 @@ from allure_commons.types import Severity
 @pytest.mark.regression
 @allure.tag(AllureTag.FILES, AllureTag.REGRESSION)
 @allure.epic(AllureEpic.LMS)
+@allure.parent_suite(AllureEpic.LMS)
 @allure.feature(AllureFeature.FILES)
+@allure.suite(AllureFeature.FILES)
 class TestFiles:
     """
     Тестовый класс для тестирования функциональной области (Работа с файлами)
@@ -31,6 +33,7 @@ class TestFiles:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.CREATE_ENTITY)
+    @allure.sub_suite(AllureStory.CREATE_ENTITY)
     @allure.tag(AllureTag.CREATE_ENTITY)
     @allure.title("Create file")
     def test_create_file(self, files_client: FilesClient):
@@ -45,6 +48,7 @@ class TestFiles:
 
     @allure.severity(Severity.CRITICAL)
     @allure.story(AllureStory.GET_ENTITY)
+    @allure.sub_suite(AllureStory.GET_ENTITY)
     @allure.tag(AllureTag.GET_ENTITY)
     @allure.title("Get file")
     def test_get_file(self, function_file: FileFixture, files_client: FilesClient):
@@ -59,6 +63,7 @@ class TestFiles:
 
     @allure.severity(Severity.NORMAL)
     @allure.story(AllureStory.VALIDATE_ENTITY)
+    @allure.sub_suite(AllureStory.VALIDATE_ENTITY)
     @allure.tag(AllureTag.VALIDATE_ENTITY)
     @allure.title("Create file with empty directory")
     def test_create_file_with_empty_directory(self, files_client: FilesClient):
@@ -76,6 +81,7 @@ class TestFiles:
 
     @allure.severity(Severity.NORMAL)
     @allure.story(AllureStory.VALIDATE_ENTITY)
+    @allure.sub_suite(AllureStory.VALIDATE_ENTITY)
     @allure.tag(AllureTag.VALIDATE_ENTITY)
     @allure.title("Create file with empty filename")
     def test_create_file_with_empty_filename(self, files_client: FilesClient):
@@ -92,6 +98,7 @@ class TestFiles:
 
     @allure.severity(Severity.NORMAL)
     @allure.story(AllureStory.DELETE_ENTITY)
+    @allure.sub_suite(AllureStory.DELETE_ENTITY)
     @allure.tag(AllureTag.DELETE_ENTITY)
     @allure.title("Delete file")
     def test_delete_file(self, files_client: FilesClient, function_file: FileFixture):
@@ -108,6 +115,7 @@ class TestFiles:
 
     @allure.severity(Severity.NORMAL)
     @allure.story(AllureStory.VALIDATE_ENTITY)
+    @allure.sub_suite(AllureStory.VALIDATE_ENTITY)
     @allure.tag(AllureTag.GET_ENTITY, AllureTag.VALIDATE_ENTITY)
     @allure.title("Get file with incorrect file id")
     def test_get_file_with_incorrect_file_id(self, files_client: FilesClient):

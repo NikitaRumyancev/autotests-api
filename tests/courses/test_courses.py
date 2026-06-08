@@ -24,7 +24,9 @@ from allure_commons.types import Severity
 @pytest.mark.regression
 @allure.tag(AllureTag.COURSES, AllureTag.REGRESSION)
 @allure.epic(AllureEpic.LMS)
+@allure.parent_suite(AllureEpic.LMS)
 @allure.feature(AllureFeature.COURSES)
+@allure.suite(AllureFeature.COURSES)
 class TestCourses:
     """
     Тестовый класс для тестирования сценариев связанных с курсами.
@@ -32,6 +34,7 @@ class TestCourses:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.CREATE_ENTITY)
+    @allure.sub_suite(AllureStory.CREATE_ENTITY)
     @allure.tag(AllureTag.CREATE_ENTITY)
     @allure.title("Create course")
     def test_create_course(self,
@@ -51,6 +54,7 @@ class TestCourses:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.GET_ENTITIES)
+    @allure.sub_suite(AllureStory.GET_ENTITIES)
     @allure.tag(AllureTag.GET_ENTITIES)
     @allure.title("Get courses")
     def test_get_courses(self,
@@ -68,6 +72,7 @@ class TestCourses:
 
     @allure.severity(Severity.CRITICAL)
     @allure.story(AllureStory.UPDATE_ENTITY)
+    @allure.sub_suite(AllureStory.UPDATE_ENTITY)
     @allure.tag(AllureTag.UPDATE_ENTITY)
     @allure.title("Update course")
     def test_update_course(self,

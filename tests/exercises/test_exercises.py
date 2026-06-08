@@ -26,7 +26,9 @@ from allure_commons.types import Severity
 @pytest.mark.regression
 @allure.tag(AllureTag.EXERCISES, AllureTag.REGRESSION)
 @allure.epic(AllureEpic.LMS)
+@allure.parent_suite(AllureEpic.LMS)
 @allure.feature(AllureFeature.EXERCISES)
+@allure.suite(AllureFeature.EXERCISES)
 class TestExercises:
     """
     Тестовый класс для тестирования сценариев связанных с файлами.
@@ -34,6 +36,7 @@ class TestExercises:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.CREATE_ENTITY)
+    @allure.sub_suite(AllureStory.CREATE_ENTITY)
     @allure.tag(AllureTag.CREATE_ENTITY)
     @allure.title("Create exercise")
     def test_create_exercise(self,
@@ -50,6 +53,7 @@ class TestExercises:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.GET_ENTITY)
+    @allure.sub_suite(AllureStory.GET_ENTITY)
     @allure.tag(AllureTag.GET_ENTITY)
     @allure.title("Get exercise")
     def test_get_exercise(self,
@@ -67,6 +71,7 @@ class TestExercises:
 
     @allure.severity(Severity.CRITICAL)
     @allure.story(AllureStory.UPDATE_ENTITY)
+    @allure.sub_suite(AllureStory.UPDATE_ENTITY)
     @allure.tag(AllureTag.UPDATE_ENTITY)
     @allure.title("Update exercise")
     def test_update_exercise(self,
@@ -85,6 +90,7 @@ class TestExercises:
 
     @allure.severity(Severity.NORMAL)
     @allure.story(AllureStory.DELETE_ENTITY)
+    @allure.sub_suite(AllureStory.DELETE_ENTITY)
     @allure.tag(AllureTag.DELETE_ENTITY)
     @allure.title("Delete exercise")
     def test_delete_exercise(self,
@@ -101,6 +107,7 @@ class TestExercises:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.GET_ENTITIES)
+    @allure.sub_suite(AllureStory.GET_ENTITIES)
     @allure.tag(AllureTag.GET_ENTITIES)
     @allure.title("Get exercises")
     def test_get_exercises(self,

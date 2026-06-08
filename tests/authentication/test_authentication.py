@@ -19,7 +19,9 @@ from allure_commons.types import Severity
 @pytest.mark.authentication
 @allure.tag(AllureTag.AUTHENTICATION, AllureTag.REGRESSION)
 @allure.epic(AllureEpic.LMS)
+@allure.parent_suite(AllureEpic.LMS)
 @allure.feature(AllureFeature.AUTHENTICATION)
+@allure.suite(AllureFeature.AUTHENTICATION)
 class TestAuthentication:
     """
     Тестовый класс для тестирования сценариев связанных с аутентификацией.
@@ -27,6 +29,7 @@ class TestAuthentication:
 
     @allure.severity(Severity.BLOCKER)
     @allure.story(AllureStory.LOGIN)
+    @allure.sub_suite(AllureStory.LOGIN)
     @allure.title("Login user")
     def test_login(self, function_user: UserFixture, authentication_client: AuthenticationClient):
         login_request = authentication_client.login_api(request=LoginRequestSchema(
