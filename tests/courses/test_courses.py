@@ -1,5 +1,6 @@
 from http import HTTPStatus
 
+import allure
 import pytest
 from clients.courses.courses_client import CoursesClient
 from clients.courses.courses_schema import UpdateCoursesRequestSchema, UpdateCourseResponseSchema
@@ -8,16 +9,31 @@ from clients.courses.courses_schema import CreateCoursesRequestSchema, CreateCou
 from fixtures.courses import CourseFixture
 from fixtures.files import FileFixture
 from fixtures.users import UserFixture
+from tools.allure.epics import AllureEpic
+from tools.allure.features import AllureFeature
+from tools.allure.stories import AllureStory
 from tools.assertions.base import assert_status_code
 from tools.assertions.courses import assert_course_update_response, assert_get_courses_response, \
     assert_create_course_response
 from tools.assertions.schema import validate_json_schema
+from tools.allure.tags import AllureTag
+from allure_commons.types import Severity
 
 
 @pytest.mark.courses
 @pytest.mark.regression
+@allure.tag(AllureTag.COURSES, AllureTag.REGRESSION)
+@allure.epic(AllureEpic.LMS)
+@allure.feature(AllureFeature.COURSES)
 class TestCourses:
+    """
+    Тестовый класс для тестирования сценариев связанных с курсами.
+    """
 
+    @allure.severity(Severity.BLOCKER)
+    @allure.story(AllureStory.CREATE_ENTITY)
+    @allure.tag(AllureTag.CREATE_ENTITY)
+    @allure.title("Create course")
     def test_create_course(self,
                            course_client: CoursesClient,
                            function_user: UserFixture,
@@ -33,6 +49,10 @@ class TestCourses:
 
         validate_json_schema(instance=response.json(), schema=CreateCourseResponseSchema.model_json_schema())
 
+    @allure.severity(Severity.BLOCKER)
+    @allure.story(AllureStory.GET_ENTITIES)
+    @allure.tag(AllureTag.GET_ENTITIES)
+    @allure.title("Get courses")
     def test_get_courses(self,
                          course_client: CoursesClient,
                          function_course: CourseFixture,
@@ -46,6 +66,10 @@ class TestCourses:
 
         validate_json_schema(instance=response.json(), schema=GetCoursesResponseSchema.model_json_schema())
 
+    @allure.severity(Severity.CRITICAL)
+    @allure.story(AllureStory.UPDATE_ENTITY)
+    @allure.tag(AllureTag.UPDATE_ENTITY)
+    @allure.title("Update course")
     def test_update_course(self,
                            course_client: CoursesClient,
                            function_course: CourseFixture):
