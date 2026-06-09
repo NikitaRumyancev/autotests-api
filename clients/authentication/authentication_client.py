@@ -5,6 +5,7 @@ from httpx import Response
 
 from clients.api_client import APIClient
 from clients.public_http_builder import get_public_http_client
+import allure
 
 
 class AuthenticationClient(APIClient):
@@ -13,6 +14,7 @@ class AuthenticationClient(APIClient):
     """
 
 
+    @allure.step("Authenticate user")
     def login_api(self, request: LoginRequestSchema) -> Response:
         """
         Метод выполняет аутентификацию пользователя.
@@ -22,6 +24,7 @@ class AuthenticationClient(APIClient):
         """
         return self.post(url="/api/v1/authentication/login", json=request.model_dump())
 
+    @allure.step("Refresh JWT Token")
     def refresh_api(self, request: RefreshRequestSchema) -> Response:
         """
         Метод обновляет токен авторизации.
@@ -41,6 +44,7 @@ class AuthenticationClient(APIClient):
         login_response = self.login_api(request)
         return LoginResponseSchema.model_validate_json(login_response.text)
 
+@allure.step("Initialization authentication client")
 def get_authentication_client() -> AuthenticationClient:
     """
     Функция создаёт экземпляр AuthenticationClient с уже настроенным HTTP-клиентом.

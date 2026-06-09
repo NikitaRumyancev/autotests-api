@@ -4,6 +4,7 @@ from clients.api_client import APIClient
 from clients.public_http_builder import get_public_http_client
 from clients.users.user_schema import (CreateUserRequestSchema,
                                        CreateUserResponseSchema)
+import allure
 
 
 class PublicUsersClient(APIClient):
@@ -11,6 +12,7 @@ class PublicUsersClient(APIClient):
     Клиент для работы с  /api/v1/users
     """
 
+    @allure.step("Create user")
     def create_user_api(self, request: CreateUserRequestSchema) -> Response:
         """
         Метод для создания нового пользователя.
@@ -28,7 +30,7 @@ class PublicUsersClient(APIClient):
         response = self.create_user_api(request=request)
         return CreateUserResponseSchema.model_validate_json(response.text)
 
-
+@allure.step("Initialization user client without auth")
 def get_public_user_client() -> PublicUsersClient:
     """
     Функция создаёт экземпляр PublicUsersClient с уже настроенным HTTP-клиентом.

@@ -10,6 +10,7 @@ from httpx import Response
 from clients.api_client import APIClient
 from clients.privet_http_builder import (AuthenticationUserSchema,
                                          get_private_http_client)
+import allure
 
 
 class ExercisesClient(APIClient):
@@ -21,6 +22,8 @@ class ExercisesClient(APIClient):
     PATCH /api/v1/exercises/{exercise_id}. Обновления данных задания.
     DELETE /api/v1/exercises/{exercise_id}. Удаление задания.
     """
+
+    @allure.step("Get exercises using query params")
     def get_exercises_api(self, query: GetExercisesQuerySchema) -> Response:
         """
         Метод получения списка заданий для определенного курса.
@@ -40,6 +43,7 @@ class ExercisesClient(APIClient):
         response = self.get_exercises_api(query=query)
         return GetExercisesResponseSchema.model_validate_json(response.text)
 
+    @allure.step("Get exercise by id: {exercise_id}")
     def get_exercise_api(self, exercise_id: str) -> Response:
         """
         Метод получения информации о задании по exercise_id.
@@ -59,6 +63,7 @@ class ExercisesClient(APIClient):
         response = self.get_exercise_api(exercise_id=exercise_id)
         return response.json()
 
+    @allure.step("Create exercise")
     def create_exercise_api(self, request: CreateExerciseRequestSchema) -> Response:
         """
         Метод создания задания.
@@ -78,6 +83,7 @@ class ExercisesClient(APIClient):
         response = self.create_exercise_api(request=request)
         return CreateExerciseResponseSchema.model_validate_json(response.text)
 
+    @allure.step("Update exercise by id: {exercise_id}")
     def update_exercise_api(self, exercise_id: str, request: UpdateExerciseRequestSchema) -> Response:
         """
         Метод обновления данных задания.
@@ -99,6 +105,7 @@ class ExercisesClient(APIClient):
         response = self.update_exercise_api(exercise_id=exercise_id, request=request)
         return UpdateExerciseResponseSchema.model_validate_json(response.text)
 
+    @allure.step("Delete exercise by id: {exercise_id}")
     def delete_exercise_api(self, exercise_id: str) -> Response:
         """
         Метод удаления задания по exercise_id.
@@ -108,7 +115,7 @@ class ExercisesClient(APIClient):
         """
         return self.delete(url=f"/api/v1/exercises/{exercise_id}")
 
-
+@allure.step("Initialization exercise client")
 def get_private_exercise_client(user: AuthenticationUserSchema) -> ExercisesClient:
     """
     Функция создаёт экземпляр ExercisesClient с уже настроенным HTTP-клиентом.

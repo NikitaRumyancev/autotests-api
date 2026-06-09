@@ -4,8 +4,10 @@ from clients.users.user_schema import CreateUserResponseSchema, CreateUserReques
 from tools.assertions.base import assert_equal
 from clients.users.user_schema import GetUserResponseSchema
 from fixtures.users import UserFixture
+import allure
 
 
+@allure.step("Assert create user response")
 def assert_create_user_response(request: CreateUserRequestSchema, response: CreateUserResponseSchema) -> None:
     """
     Проверяет, что ответ на создание пользователя соответствует запросу.
@@ -19,6 +21,7 @@ def assert_create_user_response(request: CreateUserRequestSchema, response: Crea
     assert_equal(actual=response.user.middle_name, expected=request.middle_name, name="middle_name")
     assert_equal(actual=response.user.last_name, expected=request.last_name, name="last_name")
 
+@allure.step("Assert user")
 def assert_user(actual: UserSchema, expected: UserSchema) -> None:
     """
     Сравнивает два объекта UserSchema по всем полям.
@@ -33,6 +36,7 @@ def assert_user(actual: UserSchema, expected: UserSchema) -> None:
     assert_equal(actual=actual.middle_name, expected=expected.middle_name, name="middle_name")
     assert_equal(actual=actual.last_name, expected=expected.last_name, name="last_name")
 
+@allure.step("Assert get user response")
 def assert_get_user_response(get_user_response: Any, create_user_response: UserFixture) -> None:
     """
     Проверяет, что данные пользователя при запросе соответствуют данным при создании.

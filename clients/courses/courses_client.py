@@ -7,6 +7,7 @@ from clients.api_client import APIClient
 from clients.privet_http_builder import (AuthenticationUserSchema,
                                          get_private_http_client)
 from clients.courses.courses_schema import GetCoursesQuerySchema
+import allure
 
 
 class CoursesClient(APIClient):
@@ -20,6 +21,7 @@ class CoursesClient(APIClient):
     """
 
 
+    @allure.step("Get course using query params")
     def get_course_api(self, query: GetCoursesQuerySchema) -> Response:
         """
         Метод получения списка курсов.
@@ -29,6 +31,7 @@ class CoursesClient(APIClient):
         """
         return self.get(url="/api/v1/courses", params=query.model_dump(by_alias=True))
 
+    @allure.step("Create course")
     def create_course_api(self, request: CreateCoursesRequestSchema) -> Response:
         """
         Метод создания курса.
@@ -48,6 +51,7 @@ class CoursesClient(APIClient):
         response = self.create_course_api(request=request)
         return CreateCourseResponseSchema.model_validate_json(response.text)
 
+    @allure.step("Get course by id: {course_id}")
     def get_course_by_id(self, course_id: str) -> Response:
         """
         Метод получения курса по уникальному идентификатору.
@@ -57,6 +61,7 @@ class CoursesClient(APIClient):
         """
         return self.get(url=f"/api/v1/courses/{course_id}")
 
+    @allure.step("Update course by id: {course_id}")
     def update_course_api(self, course_id: str, request: UpdateCoursesRequestSchema) -> Response:
         """
         Метод обновления курса.
@@ -67,6 +72,7 @@ class CoursesClient(APIClient):
         """
         return self.patch(url=f"/api/v1/courses/{course_id}", json=request.model_dump(by_alias=True))
 
+    @allure.step("Delete course by id: {course_id}")
     def delete_courses_api(self, course_id: str) -> Response:
         """
         Метод удаления курса по уникальному идентификатору.
@@ -76,6 +82,7 @@ class CoursesClient(APIClient):
         """
         return self.delete(url=f"/api/v1/courses/{course_id}")
 
+@allure.step("Initialization course client")
 def get_private_course_client(user: AuthenticationUserSchema) -> CoursesClient:
     """
     Функция создаёт экземпляр CoursesClient с уже настроенным HTTP-клиентом.
