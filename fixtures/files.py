@@ -2,6 +2,7 @@ import pytest
 from clients.files.files_client import get_private_file_client, FilesClient
 from clients.files.file_schema import CreateFileRequestSchema, CreateFileResponseSchema
 from pydantic import BaseModel
+from config import settings
 
 from fixtures.users import UserFixture
 
@@ -35,6 +36,6 @@ def function_file(files_client):
     :param files_client: Фикстура для инициализации клиента для работы с файлами (FilesClient)
     :return: Pydantic-модель, объединяющая запрос и ответ при создании файла.
     """
-    request = CreateFileRequestSchema(upload_file="./test_data/files/image.jpg")
+    request = CreateFileRequestSchema(upload_file=settings.test_data.image_png_file)
     response = files_client.create_file(request)
     return FileFixture(request=request, response=response)

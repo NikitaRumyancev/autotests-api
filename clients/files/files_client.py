@@ -34,7 +34,7 @@ class FilesClient(APIClient):
         return self.post(
             url=f"/api/v1/files",
             data=request.model_dump(by_alias=True, exclude={"upload_file"}),
-            files={f"upload_file": open(request.upload_file, "rb")})
+            files={f"upload_file": request.upload_file.read_bytes()})
 
     def create_file(self, request: CreateFileRequestSchema) -> CreateFileResponseSchema:
         """
