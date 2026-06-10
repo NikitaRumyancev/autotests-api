@@ -5,6 +5,10 @@ from tools.assertions.base import assert_equal, assert_length
 from tools.assertions.files import assert_file
 from tools.assertions.users import assert_user
 import allure
+from tools.logger import get_logger
+
+
+logger = get_logger("COURSES_ASSERTION")
 
 @allure.step("Check course")
 def assert_course(actual: CourseSchema, expected: CourseSchema):
@@ -15,6 +19,8 @@ def assert_course(actual: CourseSchema, expected: CourseSchema):
     :param expected: Ожидаемые данные курса.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Assert course.")
+
     assert_equal(actual=actual.id, expected=expected.id, name="id")
     assert_equal(actual=actual.title, expected=expected.title, name="title")
     assert_equal(actual=actual.max_score, expected=expected.max_score, name="max_score")
@@ -34,6 +40,8 @@ def assert_create_course_response(actual: CreateCourseResponseSchema, expected: 
     :param expected: Ожидаемые данные в ответе.
     :raises:  AssertionError, если хотя бы одно поле не совпадает с ожидаемым.
     """
+
+    logger.info("Assert create course response.")
     assert_equal(actual=actual.course.title, expected=expected.title, name="title")
     assert_equal(actual=actual.course.max_score, expected=expected.max_score, name="max_score")
     assert_equal(actual=actual.course.min_score, expected=expected.min_score, name="min_score")
@@ -55,6 +63,7 @@ def assert_get_courses_response(
    """
     assert_length(actual=get_courses_response.courses, expected=create_course_response, name="courses")
 
+    logger.info("Assert get courses response.")
     for index, create_course_response in enumerate(create_course_response):
         assert_course(actual=get_courses_response.courses[index], expected=create_course_response.course)
 
@@ -67,6 +76,7 @@ def assert_course_update_response(request: UpdateCoursesRequestSchema, response:
     :param response: Ответ API с обновленными данными курса.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Assert update course response.")
     assert_equal(actual=request.title, expected=response.course.title, name="title")
     assert_equal(actual=request.max_score, expected=response.course.max_score, name="max_score")
     assert_equal(actual=request.min_score, expected=response.course.min_score, name="min_score")

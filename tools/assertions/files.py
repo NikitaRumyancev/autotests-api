@@ -7,6 +7,10 @@ from clients.errors_schemas import ValidationErrorResponseSchema, ValidationErro
 from tools.assertions.errors import assert_validation_error_response, assert_internal_error_response
 import allure
 from config import settings
+from tools.logger import get_logger
+
+
+logger = get_logger("FILES_ASSERTIONS")
 
 
 @allure.step("Assert create file response")
@@ -18,6 +22,7 @@ def assert_create_file_response(request: CreateFileRequestSchema, response: Crea
     :param response: Фактические данные.
     :raises: AssertionError в случае несовпадения ожидаемых и фактических данных.
     """
+    logger.info("Assert create file response.")
     expected_url = f"{settings.http_client.client_url}static/{request.directory}/{request.filename}"
 
     assert_equal(actual=response.file.filename, expected=request.filename, name="filename")
@@ -34,6 +39,7 @@ def assert_file(actual: FileSchema, expected: FileSchema):
     :param expected: Ожидаемые данные файла.
     :raises AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Assert file.")
     assert_equal(actual=actual.id, expected=expected.id, name="id")
     assert_equal(actual=actual.filename, expected=expected.filename, name="filename")
     assert_equal(actual=actual.directory, expected=expected.directory, name="directory")
@@ -52,6 +58,7 @@ def assert_get_file_response(
     :param create_file_response: Ответ API при создании файла.
     :raises AssertionError: Если данные файла не совпадают.
     """
+    logger.info("Assert get file response.")
     assert_file(actual=get_file_response.file, expected=create_file_response.file)
 
 
@@ -75,6 +82,7 @@ def assert_create_file_with_empty_filename_response(actual: ValidationErrorRespo
 
         ]
     )
+    logger.info("Assert create file with empty filename response.")
     assert_validation_error_response(actual, expected)
 
 
@@ -98,6 +106,7 @@ def assert_create_file_with_empty_directory_response(actual: ValidationErrorResp
 
         ]
     )
+    logger.info("Assert create file with empty directory response.")
     assert_validation_error_response(actual, expected)
 
 
@@ -112,6 +121,7 @@ def assert_file_not_found(actual: InternalErrorResponseSchema):
     expected = InternalErrorResponseSchema(
         detail="File not found"
     )
+    logger.info("Assert file not found.")
     assert_internal_error_response(actual, expected)
 
 
@@ -138,4 +148,5 @@ def assert_get_file_with_incorrect_file_id_response(actual: ValidationErrorRespo
                                "followed by [0-9a-fA-F-], found `i` at 1")}
         )]
     )
+    logger.info("Assert get file with incorrect file id response.")
     assert_validation_error_response(actual, expected)
