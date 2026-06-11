@@ -4,122 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed5a414-6158-4774-85df-2e51d78a965f" name="Changes" comment="11.3 Добавляем логирование для API автотестов. Практика работы с логированием">
-      <change afterPath="$PROJECT_DIR$/fixtures/allure.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/allure/environment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="5ed5a414-6158-4774-85df-2e51d78a965f" name="Changes" comment="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pydantic_basics.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_basics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/00622dbe-5e00-42dc-ac8c-2c2a0dc8f647-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/009323b4-2afb-4d59-9bd1-5daeb1b2770d-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/0127630a-6782-4a00-9717-4715485aee28-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/021b612c-c3fa-41ac-b4d3-b397c33bf8b4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/0b250d7c-1072-4b3f-93ce-da230fa2a53e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/118a74c0-b326-47f3-81bd-9b447da275ee-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/14b65467-85c6-4b51-b286-c284e17561cd-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/18baf0fd-a659-4d79-aea5-3712aa84dadf-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/1c1a444c-68fb-44b0-b48f-a590c1b6f0a4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/1f129b05-71db-49ab-8ef0-700cf1590bab-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/1f42d288-1f56-454e-b541-c083a25ada06-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/1fd50828-8e18-49b3-b575-24cffc14cf9e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/20be04e7-cd46-4073-8fd3-b07862813fc7-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/225748ad-dd32-4ca6-9bcf-938f90b9ef9a-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/26a3b0cd-16e1-4584-b9fb-c33b3ed9d92a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/2808f778-077a-4815-ab68-8dbb971a6adb-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/29c526d9-7e39-467c-a087-6c8eca5feb57-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/2dda5eec-e6db-487d-b7f5-f5f918dbf865-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/31072cb9-4d51-49b3-9628-9983010c5027-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/353af293-6c19-4598-b325-480cc0dc2183-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/384e3ff8-cda9-4e1c-9ff7-e18f8e3fc150-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/39d5a2cc-5f3f-4b8b-b40b-33e0d868c0a3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/3f338720-e56c-44f4-a215-212b7e212ab6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/465355b0-14fc-49ea-9610-b7eae5047f55-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/4a48ccfe-2439-4a5a-bb55-ed0048e50753-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/4ca39942-f388-4356-bb0c-edd862724b14-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/4ce173c4-eec5-4b6b-abcd-18cbb740f830-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/5067a13f-3daa-4730-a3de-a14511be6d79-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/510658b9-7854-4189-af42-88a214ddc607-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/523a1706-16da-49e5-9c1a-ae6e102b37bd-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/539a1d7c-8ab4-4e8e-9723-a0ef4a90851b-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/555d9d4f-697d-4f29-9df9-bc6f99f6a637-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/57d366b0-d42f-45f1-9e92-ebe094229737-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/58f9f563-8236-41d1-bdf5-9da3fc000e5e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/5f8d1c17-f1bb-4199-a5c8-a7f59e677630-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/5f9cc9eb-1886-4b73-8522-2bccf564d6ca-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/5fd03f75-1267-4070-8d43-f2d99cd283d9-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/6327428a-4a5f-4f5a-ad61-cd4798e1b786-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/647dce87-170d-4b54-af98-5220985c725b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/686dec47-2da4-4dfc-bbff-cb3e1c6797e9-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/698a4266-4305-40f4-abe0-f58354941c39-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/6a255ece-20b6-4f61-a4fc-18af2f11d5a8-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/6d8257dc-7f9f-40e8-8678-de46b09750f3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/71692626-e6c0-44bc-a042-97d6bb5baca0-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/72c6c39c-a759-4b7f-a57b-62a08e6f78ae-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/73fd8e6c-d26b-4a16-bef8-4ce7687ce783-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/74a093ee-6567-4d5f-a2ba-89e2404e9e6b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/7778d9ef-6831-4385-b0de-0cba37170d7d-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/7805e6d1-4b4e-444e-8ef8-35bea607a9ab-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/78cbbf5a-5ded-4383-8461-d8de6afffd81-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/79c5fbd2-a656-4afd-a17b-75f3cf3711c3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/79f81aa4-8d72-4512-ba89-6d257a338791-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/7af70c67-d44d-49db-b278-6d74e96556ef-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/7da9aa5b-18d5-4921-a3bc-20ce5b0d19d4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/7e2a98f2-ca79-45ec-ade6-9e49046f2bef-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/80f35203-0061-4091-9f63-d7d204283ff1-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/81716f19-7e75-42d8-896e-6ce3abad4fd5-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/85151ff4-ce84-4e4a-a187-8157506181ec-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/860d24d4-ed46-4ea2-84ba-3591de32b747-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/874204c1-8a5b-491f-a51f-2d561fce65df-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/8783cc94-191f-4a26-83f1-0ee3c716bcb9-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/8a87cb8d-a169-481e-9a84-ccab79874a52-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/8f5051fa-d71e-49ff-ade8-1b944e33d44a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/91c402ed-2904-44e4-ad61-1195cc780262-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/93f9f2d6-729f-429d-9797-ca335bc3a1fc-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/948326a6-5fe5-4f56-857c-87ca419a6a6b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/982438b7-88bc-4ac7-8520-3e71d3cf6c4c-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/9bc99c59-4434-42a2-8662-afc9b6a4f3b3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/a7566eb9-a658-4623-b886-140f33accb02-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/a8033871-3338-45e4-9e8e-3668229ee8d3-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b35f060b-7821-40ad-8e81-1a9b85bd704d-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b39ac400-bd7b-4046-8665-b24b27925966-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b66f9c71-8523-43fb-93d3-1c8fb0319982-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b6d76503-52c8-442b-ace3-c72a1fdb2773-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b7da75d4-bf92-4e48-9533-f34daf523682-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b892cba1-d4b8-474e-b731-b33d98b30feb-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/b93b88d3-8131-4dbd-8e8b-e5b64913c284-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/baa704a0-9f62-4db5-bee2-89b7cffcd1b8-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/bbc09691-67bc-42b4-ad48-673602032004-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/bc3e350d-eda1-40bd-8cac-17e1bc103f5a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/bed0b038-4283-4df8-81cd-3cdeaddc6025-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/bf1ccde0-4ee8-41d2-9f31-0bd9af347d3a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/c4011ce3-cf17-4d82-9ff3-cf7f044784b6-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/c6f1bc0c-e7ba-40a5-95d1-28211f6f16a1-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/c8cc7442-decc-4042-9fda-540002e71170-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/c91d4f93-6b5e-46ac-9fd1-b511f041b0e0-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/ce0215a7-8ca4-454c-abdb-c4249dcd5e1e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d0d3daaa-4d45-49bf-b144-2116fb5ea715-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d12c2aae-a86b-4376-ad8b-cf3f52120280-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d1c9fe2b-ebc8-46bc-ad49-b04713b392d4-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d21d7841-cb64-4783-a3f7-6b5d6bed3028-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d398b071-e2e8-4baa-acd3-5d99c26a124f-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d46fa575-b1d7-4c0e-96f4-025b03baa521-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d4bb4717-4b65-4a46-9191-653f9a9d4c58-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d79d282e-aba6-4023-9d20-df6e82ff1c1d-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/d91d5780-2652-48b6-a33e-466e1a736f95-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/db21c5a7-9160-41fc-882f-c3cd9fd60927-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/dd13bad6-d063-4a11-8d63-b7ec9ca75af1-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/de030130-bca2-4ef0-9cb8-a445cbca535d-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/de2f1f1b-e920-467d-9a30-c219a1684db6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/ded04af7-9b8f-4585-89fa-426324e4be8e-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/e37deb39-543a-48fd-b2bd-c84400eca7ad-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/e5c672d6-bf76-44cd-8516-3f75b165f968-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/e8f0b0a4-5df5-45fc-a30b-676750801b96-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/ec7f788b-9352-445d-9a95-cb741cacc7c8-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/eebbf140-fc87-48ce-84bf-4958edc1472b-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/ef3c17d1-72aa-417c-a054-d4b5fc2116b6-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_run_res/fc406755-df75-499b-a3e5-fd279a04195f-container.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781118773008</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure">
+      <option name="closed" value="true" />
+      <created>1781182143321</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781182143321</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +128,7 @@
     <MESSAGE value="10.3 Добавление Allure шагов в автотесты. Практика работы с allure.step" />
     <MESSAGE value="11.1 Настройки автотестов с Pydantic. Практика работы с настройками" />
     <MESSAGE value="11.3 Добавляем логирование для API автотестов. Практика работы с логированием" />
-    <option name="LAST_COMMIT_MESSAGE" value="11.3 Добавляем логирование для API автотестов. Практика работы с логированием" />
+    <MESSAGE value="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure" />
+    <option name="LAST_COMMIT_MESSAGE" value="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure" />
   </component>
 </project>
