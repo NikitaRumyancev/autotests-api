@@ -6,6 +6,7 @@ from httpx import Response
 from clients.api_client import APIClient
 from clients.public_http_builder import get_public_http_client
 import allure
+from tools.routers import APIRouters
 
 
 class AuthenticationClient(APIClient):
@@ -22,7 +23,7 @@ class AuthenticationClient(APIClient):
         :param request: Словарь с email и password.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url="/api/v1/authentication/login", json=request.model_dump())
+        return self.post(url=f"{APIRouters.AUTHENTICATION}/login", json=request.model_dump())
 
     @allure.step("Refresh JWT Token")
     def refresh_api(self, request: RefreshRequestSchema) -> Response:
@@ -32,7 +33,7 @@ class AuthenticationClient(APIClient):
         :param request: Словарь с refreshToken.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url="/api/v1/authentication/refresh", json=request.model_dump(by_alias=True))
+        return self.post(url=f"{APIRouters.AUTHENTICATION}/refresh", json=request.model_dump(by_alias=True))
 
     def login(self, request: LoginRequestSchema) -> LoginResponseSchema:
         """

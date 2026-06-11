@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed5a414-6158-4774-85df-2e51d78a965f" name="Changes" comment="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure">
+    <list default="true" id="5ed5a414-6158-4774-85df-2e51d78a965f" name="Changes" comment="comment incoorect str">
+      <change afterPath="$PROJECT_DIR$/tools/routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pydantic_basics.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydantic_basics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/authentication/authentication_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/authentication/authentication_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/courses/courses_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/courses/courses_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/exercises/exercises_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/exercises/exercises_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/files/files_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/files/files_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/users/private_user_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/users/private_user_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/users/public_users_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/clients/users/public_users_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pydantic_basics.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +58,7 @@
     "Python.main.executor": "Run",
     "Python.pydantic_basics.executor": "Run",
     "Python.python_convertation-xml.executor": "Run",
+    "Python.routers.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -118,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781182143321</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="comment incoorect str">
+      <option name="closed" value="true" />
+      <created>1781182404829</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1781182404829</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +145,7 @@
     <MESSAGE value="11.1 Настройки автотестов с Pydantic. Практика работы с настройками" />
     <MESSAGE value="11.3 Добавляем логирование для API автотестов. Практика работы с логированием" />
     <MESSAGE value="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure" />
-    <option name="LAST_COMMIT_MESSAGE" value="11.4 Добавляем информацию о переменных окружения в Allure отчет. Практика работы с переменными окружения в Allure" />
+    <MESSAGE value="comment incoorect str" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment incoorect str" />
   </component>
 </project>

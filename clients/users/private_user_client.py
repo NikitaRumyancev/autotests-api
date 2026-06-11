@@ -5,6 +5,7 @@ from clients.users.user_schema import GetUserResponseSchema, UpdateUserRequestSc
 from clients.api_client import APIClient
 from clients.privet_http_builder import get_private_http_client
 import allure
+from tools.routers import APIRouters
 
 
 class PrivateUsersClient(APIClient):
@@ -22,7 +23,7 @@ class PrivateUsersClient(APIClient):
         Метод получения текущего пользователя.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url="/api/v1/users/me")
+        return self.get(url=f"{APIRouters.USERS}/me")
 
     @allure.step("Get user by id: {user_id}")
     def get_user_api(self, user_id: str) -> Response:
@@ -31,7 +32,7 @@ class PrivateUsersClient(APIClient):
         :param user_id: Уникальный идентификатор пользователя.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url=f"/api/v1/users/{user_id}")
+        return self.get(url=f"{APIRouters.USERS}/{user_id}")
 
     def get_user(self, user_id: str) -> GetUserResponseSchema:
         response = self.get_user_api(user_id=user_id)
@@ -46,7 +47,7 @@ class PrivateUsersClient(APIClient):
         Можно выбрать опционально какое то одно поле.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.patch(url=f"/api/v1/users/{user_id}", json=request.model_dump())
+        return self.patch(url=f"{APIRouters.USERS}/{user_id}", json=request.model_dump())
 
     @allure.step("Delete user by id: {user_id}")
     def delete_user_api(self, user_id: str) -> Response:
@@ -55,7 +56,7 @@ class PrivateUsersClient(APIClient):
         :param user_id: Уникальный идентификатор пользователя.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.delete(url=f"/api/v1/users/{user_id}")
+        return self.delete(url=f"{APIRouters.USERS}/{user_id}")
 
 @allure.step("Initialization client with auth")
 def get_private_user_client(user: AuthenticationUserSchema) -> PrivateUsersClient:

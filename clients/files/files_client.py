@@ -5,6 +5,7 @@ from clients.files.file_schema import (CreateFileRequestSchema,
                                        CreateFileResponseSchema)
 from clients.privet_http_builder import (AuthenticationUserSchema,
                                          get_private_http_client)
+from tools.routers import APIRouters
 
 
 class FilesClient(APIClient):
@@ -22,7 +23,7 @@ class FilesClient(APIClient):
         :param file_id: Идентификатор файла.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.get(url=f"/api/v1/files/{file_id}")
+        return self.get(url=f"{APIRouters.FILES}/{file_id}")
 
     def create_file_api(self, request: CreateFileRequestSchema) -> Response:
         """
@@ -32,7 +33,7 @@ class FilesClient(APIClient):
         :return: Ответ от сервера в виде объекта httpx.Response
         """
         return self.post(
-            url=f"/api/v1/files",
+            url=f"{APIRouters.FILES}",
             data=request.model_dump(by_alias=True, exclude={"upload_file"}),
             files={f"upload_file": request.upload_file.read_bytes()})
 
@@ -53,7 +54,7 @@ class FilesClient(APIClient):
         :param file_id: Идентификатор файла.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.delete(url=f"/api/v1/files/{file_id}")
+        return self.delete(url=f"{APIRouters.FILES}/{file_id}")
 
 
 def get_private_file_client(user: AuthenticationUserSchema) -> FilesClient:

@@ -11,6 +11,7 @@ from clients.api_client import APIClient
 from clients.privet_http_builder import (AuthenticationUserSchema,
                                          get_private_http_client)
 import allure
+from tools.routers import APIRouters
 
 
 class ExercisesClient(APIClient):
@@ -31,7 +32,7 @@ class ExercisesClient(APIClient):
         :param query: Словарь c courseId.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url="/api/v1/exercises", params=query.model_dump(by_alias=True))
+        return self.get(url=f"{APIRouters.EXERCISES}", params=query.model_dump(by_alias=True))
 
     def get_exercises(self, query: GetExercisesQuerySchema) -> GetExercisesResponseSchema:
         """
@@ -51,7 +52,7 @@ class ExercisesClient(APIClient):
         :param exercise_id: Уникальный идентификатор.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url=f"/api/v1/exercises/{exercise_id}")
+        return self.get(url=f"{APIRouters.EXERCISES}/{exercise_id}")
 
     def get_exercise(self, exercise_id: str) -> GetExerciseResponseSchema:
         """
@@ -71,7 +72,7 @@ class ExercisesClient(APIClient):
         :param request: Словарь из: title, courseId, maxScore, minScore, orderIndex, description, estimatedTime.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.post(url="/api/v1/exercises", json=request.model_dump(by_alias=True))
+        return self.post(url=f"{APIRouters.EXERCISES}", json=request.model_dump(by_alias=True))
 
     def create_exercise(self, request: CreateExerciseRequestSchema) -> CreateExerciseResponseSchema:
         """
@@ -92,7 +93,7 @@ class ExercisesClient(APIClient):
         :param request: Словарь из: title, maxScore, minScore, orderIndex, description, estimatedTime.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.patch(url=f"/api/v1/exercises/{exercise_id}", json=request.model_dump(by_alias=True))
+        return self.patch(url=f"{APIRouters.EXERCISES}/{exercise_id}", json=request.model_dump(by_alias=True))
 
     def update_exercise(self, exercise_id: str, request: UpdateExerciseRequestSchema) -> UpdateExerciseResponseSchema:
         """
@@ -113,7 +114,7 @@ class ExercisesClient(APIClient):
         :param exercise_id: Уникальный идентификатор.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.delete(url=f"/api/v1/exercises/{exercise_id}")
+        return self.delete(url=f"{APIRouters.EXERCISES}/{exercise_id}")
 
 @allure.step("Initialization exercise client")
 def get_private_exercise_client(user: AuthenticationUserSchema) -> ExercisesClient:
