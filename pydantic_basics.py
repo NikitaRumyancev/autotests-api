@@ -67,3 +67,15 @@ print(model1.model_dump_json(by_alias=True))
 #
 # model_json_schemas = CourseShema.model_validate_json(json_str)
 # print(model_json_schemas)
+
+# import platform
+#
+#
+# print(f'{platform.system()}, {platform.release()}')
+#
+# Windows, 11
+# 3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]
+import sys
+
+
+print(sys.version)
